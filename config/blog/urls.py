@@ -2,6 +2,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', corepage, name="corepage"),
-    path('about/', about, name='about'),
+    path('', Index.as_view(), name="corepage"),
+    path('about/', About.as_view(), name='about'),
 ]
