@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+
     <title>{% block title %}{% endblock %}shahriaarrr blog</title>
 </head>
 <body>
+    {% include 'blog/nav.html' %}
     {% block content %}
     {% endblock %}
 </body>
