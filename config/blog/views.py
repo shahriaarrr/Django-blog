@@ -3,6 +3,8 @@ from django.views import View
 from django.views.generic import ListView, DetailView
 
 from .models import Article
+
+
 # Create your views here.
 
 class Index(ListView):
@@ -10,6 +12,14 @@ class Index(ListView):
     queryset = Article.objects.all().order_by("-date")
     template_name = 'blog/home.html'
     paginate_by = 1
+
+
+class Featured(ListView):
+    model = Article
+    queryset = Article.objects.filter(featured=True).order_by("-date")
+    template_name = 'blog/featured.html'
+    paginate_by = 1
+
 
 class DetailArticleView(DetailView):
     model = Article
@@ -24,6 +34,7 @@ class DetailArticleView(DetailView):
 
         return context
 
+
 class LikeArticle(View):
     def post(self, request, pk):
         article = Article.objects.get(id=pk)
@@ -34,7 +45,6 @@ class LikeArticle(View):
 
         article.save()
         return redirect('detail_article', pk)
-
 
 
 class About(View):
