@@ -24,7 +24,7 @@
             <div class="my-3">
                 {{ object.content | truncatewords_html:50 | safe }}
             </div>
-            <a href="#">Read more</a>
+            <a href="{% url 'detail_article' object.id %}">Read more</a>
         </div>
     </div>
     {% endfor %}
