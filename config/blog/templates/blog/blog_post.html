@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 col-12 mx-md-auto mb-3 pd-2 mx-3">
+        <div class="col-md-6 col-11 mx-md-auto mb-3 pd-2 mx-3">
             <h1>{{ object.title }}</h1>
 
             <p class="text-muted">{{ object.date }}</p>
@@ -31,16 +31,16 @@
                 {% if liked_by_user %}
                     <form method="POST" action="{% url 'like_article' object.id %}">
                         {% csrf_token %}
-                        <button class="btn btn-outline-primary">unlike this post</button>
+                        <button class="btn btn-outline-primary"><ion-icon name="heart-dislike-outline"></ion-icon> unlike this post</button>
                     </form>
                 {% else %}
                     <form method="POST" action="{% url 'like_article' object.id %}">
                         {% csrf_token %}
-                        <button class="btn btn-outline-primary">like this post</button>
+                        <button class="btn btn-outline-primary"><ion-icon name="heart-outline"></ion-icon> like this post</button>
                     </form>
                 {% endif %}
             {% else %}
-                <button class="btn btn-outline-primary" disabled>do you want like this post? so login here</button>
+                <button class="btn btn-outline-primary" disabled><ion-icon name="log-in-outline"></ion-icon> do you want like this post? please login or signup</button>
             {% endif %}
         </div>
     </div>
