@@ -1,4 +1,6 @@
 # Django-blog
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/75499598/230742600-948ac600-b72e-4d53-93b5-62c22c84ddce.gif)
+
 This project was built with Django and was created as part of the 100DaysOfCode challenge. The goal was to write a simple blog with basic features using Django and complete it over time.
 I am proud to present the initial and experimental version of this blog
 
