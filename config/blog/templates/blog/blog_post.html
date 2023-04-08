@@ -18,4 +18,30 @@
             </div>
         </div>
     </div>
+
+    <div class="row my-3">
+        <div class="col-md-6 col-12 mx-md-auto mx-3">
+            {% if object.likes.count == 1 %}
+                <p>{{ object.likes.count }} person liked</p>
+            {% else %}
+                <p>{{ object.likes.count }} people liked</p>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+                {% if liked_by_user %}
+                    <form method="POST" action="{% url 'like_article' object.id %}">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-primary">unlike this post</button>
+                    </form>
+                {% else %}
+                    <form method="POST" action="{% url 'like_article' object.id %}">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-primary">like this post</button>
+                    </form>
+                {% endif %}
+            {% else %}
+                <button class="btn btn-outline-primary" disabled>do you want like this post? so login here</button>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
